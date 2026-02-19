@@ -5,8 +5,8 @@
   --fg: #c2c2c2;
   --amber: #ffb000;
   --amber-glow: rgba(255, 176, 0, 0.06);
-  --grid-line: rgba(255, 176, 0, 0.12);
-  --grid-ambient: rgba(255, 176, 0, 0.18);
+  --grid-line: rgba(255, 176, 0, 0.18);
+  --grid-ambient: rgba(255, 176, 0, 0.10);
   --grid-unit: 60px;
   --muted: #c2c2c2;
   --muted-line: rgba(74, 74, 74, 0.3);
