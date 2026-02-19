@@ -1,54 +1,77 @@
 "use client";
 
+import { useState } from "react";
+
 export default function LeftPanel() {
+  const [showCopied, setShowCopied] = useState(false);
+
+  function copyEmail() {
+    navigator.clipboard.writeText("licaelan@gmail.com");
+    setShowCopied(true);
+    setTimeout(() => setShowCopied(false), 1500);
+  }
+
   return (
-    <div className="w-[38%] min-h-screen flex flex-col justify-center pl-20 pr-12 sticky top-0 h-screen">
-      <div className="flex flex-col gap-10">
+    <div className="w-[300px] flex flex-col justify-center">
+      <div className="flex flex-col gap-6">
         <div>
-          <h1 className="font-mono text-3xl font-medium text-amber tracking-tight">
+          <h1 className="text-3xl font-medium text-amber tracking-tight">
             Caelan Liu
           </h1>
-          <p className="font-mono text-xs text-muted mt-1.5 tracking-wide">
+          <p className="text-xs text-muted mt-2 tracking-wide">
             Software Engineer
             <span className="cursor-blink text-amber ml-1">_</span>
           </p>
+          <p className="text-xs mt-1 tracking-wide">
+            <span className="text-muted">@ </span>
+            <span className="text-atlassian">Atlassian</span>
+          </p>
         </div>
+
+        <p className="text-xs text-muted leading-relaxed">
+          Studied <span className="text-amber-dim">Electrical and Computer Engineering</span>
+          <br />
+          at <span className="text-amber-dim">University of Texas at Austin</span>
+        </p>
 
         <nav className="flex gap-6">
           <a
             href="https://github.com/CaelanL"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-[11px] text-muted hover:text-amber transition-colors"
+            className="text-[11px] text-muted hover:text-amber transition-colors"
           >
             GitHub
           </a>
           <a
-            href="#"
+            href="https://linkedin.com/in/caelanliu"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-[11px] text-muted hover:text-amber transition-colors"
+            className="text-[11px] text-muted hover:text-amber transition-colors"
           >
             LinkedIn
           </a>
-          <a
-            href="mailto:you@example.com"
-            className="font-mono text-[11px] text-muted hover:text-amber transition-colors"
+          <button
+            onClick={copyEmail}
+            className="text-[11px] text-muted hover:text-amber transition-colors cursor-pointer"
           >
-            Email
-          </a>
+            licaelan@gmail.com
+          </button>
         </nav>
 
-        <p className="font-mono text-xs text-fg leading-relaxed max-w-xs opacity-50">
-          Studied [major] at [university]. Building AI-powered tools
-          and voice interfaces. Occasionally making hats.
-        </p>
-
-        {/* Photo placeholder — will be stylized (halftone/duotone/grain) */}
         <div className="w-24 h-24 border border-grid flex items-center justify-center">
-          <span className="font-mono text-[8px] text-muted opacity-30">[ photo ]</span>
+          <span className="text-[8px] text-muted opacity-30">[ photo ]</span>
         </div>
       </div>
+
+      {showCopied && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
+          <div className="text-xs text-amber border border-grid bg-bg px-4 py-2 flex items-center gap-2">
+            <span>&#10003;</span>
+            Copied
+          </div>
+        </div>
+      )}
     </div>
   );
 }

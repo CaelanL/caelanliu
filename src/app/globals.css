@@ -2,13 +2,19 @@
 
 :root {
   --bg: #0a0a0a;
-  --fg: #a8a8a8;
+  --fg: #c2c2c2;
   --amber: #ffb000;
   --amber-glow: rgba(255, 176, 0, 0.06);
   --grid-line: rgba(255, 176, 0, 0.12);
+  --grid-ambient: rgba(255, 176, 0, 0.18);
   --grid-unit: 60px;
-  --muted: #4a4a4a;
+  --muted: #c2c2c2;
+  --muted-line: rgba(74, 74, 74, 0.3);
+  --atlassian-blue: #0052CC;
+  --amber-dim: #b87e00;
+  --amber-hover: rgba(255, 176, 0, 0.015);
   --alert: #ff6b35;
+  --alert-hover: rgba(255, 107, 53, 0.05);
 }
 
 @theme inline {
@@ -16,8 +22,14 @@
   --color-fg: var(--fg);
   --color-amber: var(--amber);
   --color-grid: var(--grid-line);
+  --color-grid-ambient: var(--grid-ambient);
   --color-muted: var(--muted);
+  --color-muted-line: var(--muted-line);
+  --color-atlassian: var(--atlassian-blue);
+  --color-amber-dim: var(--amber-dim);
+  --color-amber-hover: var(--amber-hover);
   --color-alert: var(--alert);
+  --color-alert-hover: var(--alert-hover);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -26,6 +38,7 @@ body {
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font-geist-mono), monospace;
+  zoom: 1.05;
 }
 
 body::before {
@@ -48,4 +61,13 @@ body::before {
 
 .text-glow {
   text-shadow: 0 0 6px var(--amber-glow);
+}
+
+.ambient-grid {
+  background-image:
+    linear-gradient(to right, var(--grid-ambient) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-ambient) 1px, transparent 1px);
+  background-size: var(--grid-unit) var(--grid-unit);
+  mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 40%, transparent 80%);
 }
