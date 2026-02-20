@@ -27,7 +27,7 @@ export const projects: Project[] = [
     image: "/bread-icon.png",
     preview: "Voice-initiated Bible memorization study app.",
     description:
-      "A voice-first approach to Bible study and memorization.\n\n(Your full description here.)",
+      "I practice scripture memorization, and the app I used to use was great — you'd type the first letter of each word, it would progressively remove words to increase difficulty. But I always wished I could just use my voice instead, with a good transcription service and a cleaner UI. So I made this for myself.",
     tags: ["TypeScript", "Voice", "Mobile"],
     links: [
       { label: "GitHub", url: "https://github.com/CaelanL/Bread", icon: "github" },
@@ -40,8 +40,8 @@ export const projects: Project[] = [
     preview:
       "Personal AI agent for 572 voice memos — RAG, tool orchestration, and fine-tuned LLM.",
     description:
-      "Built a personal AI agent that can search, summarize, and answer questions about years of voice memos.\n\n(Your full description here.)",
-    tags: ["Python", "RAG", "LLM"],
+      "Me and my best friend exchange voice memos to catch up. As LLMs became a thing, I got curious about what AI could pull out of a bunch of personal data — and more broadly, how LLMs actually work under the hood.\n\nWent in wanting to train a model on voice memos and ask it questions. Quickly realized RAG is what you actually want for accurate retrieval — search by date, topic, embedding similarity, monthly summaries, all of that. But I still wanted to go through the process of training something, so I fine-tuned a small Mistral model on synthetic Q&A pairs generated from the memos and made it a tool in the orchestrator's toolkit. When a user asks something like \"how would he say this?\" the agent routes to the fine-tuned model for mimicry. Mostly an excuse to learn how training actually works end to end.",
+    tags: ["Python", "RAG", "LLM", "SFT"],
     links: [
       { label: "GitHub", url: "https://github.com/CaelanL/voice-memo-llm", icon: "github" },
     ],
@@ -49,9 +49,9 @@ export const projects: Project[] = [
   {
     id: "learn-ai",
     name: "learn-ai",
-    preview: "Quick-fire learning modules on any topic, powered by GPT.",
+    preview: "ChatGPT wrapper for creating Socratic learning content.",
     description:
-      "The idea was to make learning feel like scrolling — pick a topic, get a tight 2-min module, move on.\n\n(Your full description here.)",
+      "I use AI a lot to learn — I'd create little markdown curricula on topics and have it teach me Socratically, asking questions that force me to think rather than just reading. I'd make these for friends too, but the curriculum creation always took a while. So I built a simple system where you pick a topic and it generates a quick interactive module. Just made the process faster for myself and anyone I wanted to share it with.",
     tags: ["TypeScript", "Next.js", "GPT"],
     links: [
       { label: "GitHub", url: "https://github.com/CaelanL/learn-ai", icon: "github" },
@@ -63,7 +63,7 @@ export const projects: Project[] = [
     name: "flow",
     preview: "Voice-to-text that pastes anywhere. Hold a hotkey, speak, release.",
     description:
-      "A system-level tool — hold a hotkey, speak, release, and the transcription pastes wherever your cursor is.\n\n(Your full description here.)",
+      "I used to use Wispr Flow, and when my trial ran out I realized $12/month is a lot more expensive than just doing it myself with the Whisper API. So I made this real quick.\n\nA system-level tool — hold a hotkey, speak, release, and the transcription pastes wherever your cursor is.",
     tags: ["Python", "Whisper", "Desktop"],
     links: [
       { label: "GitHub", url: "https://github.com/CaelanL/flow", icon: "github" },
