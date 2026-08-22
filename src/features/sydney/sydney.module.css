@@ -1,0 +1,1140 @@
+.gatePage,
+.marketPage {
+  --amber: #ffb000;
+  --cream: #f2eadb;
+  --green: #86ffb1;
+  --red: #ff644c;
+  min-height: 100svh;
+  overflow: hidden;
+  position: relative;
+}
+
+.gatePage {
+  align-items: center;
+  background:
+    radial-gradient(circle at 50% 46%, rgba(255, 176, 0, 0.055), transparent 34rem),
+    #070707;
+  display: flex;
+  justify-content: center;
+  padding: 5rem 1.25rem;
+}
+
+.gateGrid,
+.marketGrid {
+  background-image:
+    linear-gradient(rgba(255, 176, 0, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 176, 0, 0.07) 1px, transparent 1px);
+  background-size: 52px 52px;
+  inset: -20%;
+  mask-image: radial-gradient(circle, #000 12%, transparent 66%);
+  opacity: 0.8;
+  pointer-events: none;
+  position: absolute;
+  transform: perspective(700px) rotateX(62deg) translateY(30%);
+}
+
+.scanBeam {
+  animation: scan 8s linear infinite;
+  background: linear-gradient(90deg, transparent, rgba(255, 176, 0, 0.16), transparent);
+  height: 1px;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 10%;
+}
+
+.terminal {
+  animation: terminalIn 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  backdrop-filter: blur(20px);
+  background: rgba(7, 7, 7, 0.84);
+  border: 1px solid rgba(255, 176, 0, 0.34);
+  box-shadow:
+    0 0 0 1px rgba(255, 176, 0, 0.035) inset,
+    0 30px 100px rgba(0, 0, 0, 0.65),
+    0 0 70px rgba(255, 176, 0, 0.035);
+  max-width: 690px;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.terminal::before,
+.terminal::after,
+.marketConsole::before,
+.marketConsole::after {
+  border-color: var(--amber);
+  border-style: solid;
+  content: "";
+  height: 13px;
+  pointer-events: none;
+  position: absolute;
+  width: 13px;
+  z-index: 3;
+}
+
+.terminal::before,
+.marketConsole::before {
+  border-width: 1px 0 0 1px;
+  left: -6px;
+  top: -6px;
+}
+
+.terminal::after,
+.marketConsole::after {
+  border-width: 0 1px 1px 0;
+  bottom: -6px;
+  right: -6px;
+}
+
+.terminalDenied {
+  animation: deny 360ms ease both;
+  border-color: rgba(255, 100, 76, 0.56);
+}
+
+.terminalHeader,
+.marketHeader,
+.marketFooter {
+  color: rgba(242, 234, 219, 0.43);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.terminalHeader {
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 176, 0, 0.16);
+  display: flex;
+  justify-content: space-between;
+  padding: 0.85rem 1rem;
+}
+
+.signalStatus,
+.marketConnection {
+  align-items: center;
+  color: rgba(255, 176, 0, 0.76);
+  display: inline-flex;
+  gap: 0.45rem;
+}
+
+.signalStatus i,
+.marketConnection i {
+  animation: pulse 1.8s ease-in-out infinite;
+  background: var(--amber);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--amber);
+  height: 5px;
+  width: 5px;
+}
+
+.terminalBody {
+  padding: clamp(2rem, 6vw, 4.25rem);
+}
+
+.terminalBody h1 {
+  color: var(--cream);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: clamp(2rem, 7vw, 4.3rem);
+  font-weight: 400;
+  letter-spacing: -0.075em;
+  line-height: 0.95;
+  text-shadow: 0 0 28px rgba(255, 176, 0, 0.12);
+}
+
+.gateForm {
+  display: grid;
+  gap: 1.35rem;
+  margin-top: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.nameFields {
+  display: grid;
+  gap: 1.35rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.field {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.field > span {
+  color: rgba(242, 234, 219, 0.42);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.field input {
+  background: rgba(255, 255, 255, 0.018);
+  border: 0;
+  border-bottom: 1px solid rgba(255, 176, 0, 0.31);
+  border-radius: 0;
+  color: var(--cream);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.95rem;
+  min-width: 0;
+  outline: none;
+  padding: 0.8rem 0.15rem;
+  transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+  width: 100%;
+}
+
+.field input::placeholder {
+  color: rgba(255, 176, 0, 0.35);
+}
+
+.field input:focus {
+  background: rgba(255, 176, 0, 0.025);
+  border-color: var(--amber);
+  box-shadow: 0 7px 14px -12px var(--amber);
+}
+
+.field input[aria-invalid="true"] {
+  border-color: rgba(255, 100, 76, 0.68);
+}
+
+.formFooter {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-top: 0.8rem;
+}
+
+.formFooter p {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+}
+
+.awaiting {
+  color: rgba(242, 234, 219, 0.35);
+}
+
+.denied {
+  color: var(--red);
+  text-shadow: 0 0 12px rgba(255, 100, 76, 0.35);
+}
+
+.formFooter button,
+.checkMarketButton,
+.nextEventButton,
+.channelUnlock button {
+  align-items: center;
+  background: transparent;
+  border: 1px solid rgba(255, 176, 0, 0.58);
+  color: var(--amber);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.76rem;
+  gap: 1rem;
+  justify-content: center;
+  letter-spacing: 0.1em;
+  min-height: 2.9rem;
+  padding: 0.75rem 1rem;
+  text-transform: uppercase;
+  transition: background 180ms ease, color 180ms ease, box-shadow 180ms ease;
+}
+
+.formFooter button:hover:not(:disabled),
+.formFooter button:focus-visible,
+.checkMarketButton:hover:not(:disabled),
+.checkMarketButton:focus-visible,
+.nextEventButton:hover,
+.nextEventButton:focus-visible {
+  background: var(--amber);
+  box-shadow: 0 0 24px rgba(255, 176, 0, 0.14);
+  color: #080806;
+}
+
+.formFooter button:disabled,
+.checkMarketButton:disabled,
+.channelUnlock button:disabled {
+  cursor: not-allowed;
+  opacity: 0.35;
+}
+
+.coordinates {
+  bottom: 1.25rem;
+  color: rgba(255, 176, 0, 0.2);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.68rem;
+  left: 1.25rem;
+  letter-spacing: 0.12em;
+  position: absolute;
+}
+
+.marketPage {
+  align-items: center;
+  background:
+    radial-gradient(circle at 80% 12%, rgba(255, 176, 0, 0.065), transparent 24rem),
+    radial-gradient(circle at 10% 90%, rgba(83, 117, 92, 0.08), transparent 30rem),
+    #050605;
+  color: var(--cream);
+  display: flex;
+  justify-content: center;
+  min-height: 100svh;
+  overflow: clip;
+  padding: clamp(1rem, 3vw, 2.75rem);
+}
+
+.marketGrid {
+  background-size: 44px 44px;
+  inset: -40%;
+  mask-image: radial-gradient(ellipse at center, #000 5%, transparent 64%);
+  opacity: 0.3;
+  transform: perspective(760px) rotateX(66deg) translateY(38%);
+}
+
+.gridPulse {
+  animation: gridSweep 9s linear infinite;
+  background: linear-gradient(90deg, transparent, rgba(255, 176, 0, 0.1), transparent);
+  height: 1px;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 8%;
+}
+
+.marketConsole {
+  animation: terminalIn 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  background: rgba(7, 9, 7, 0.95);
+  border: 1px solid rgba(255, 176, 0, 0.28);
+  box-shadow:
+    0 35px 120px rgba(0, 0, 0, 0.72),
+    0 0 0 1px rgba(255, 176, 0, 0.025) inset;
+  max-width: 1120px;
+  min-width: 0;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.marketPage[data-solved="true"] .marketConsole {
+  border-color: rgba(134, 255, 177, 0.36);
+  box-shadow:
+    0 35px 120px rgba(0, 0, 0, 0.72),
+    0 0 90px rgba(134, 255, 177, 0.035) inset;
+}
+
+.marketPage[data-solved="true"] .marketConsole::before,
+.marketPage[data-solved="true"] .marketConsole::after {
+  border-color: var(--green);
+}
+
+.marketHeader {
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 176, 0, 0.13);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  padding: 0.82rem 1rem;
+}
+
+.marketHeader > :last-child {
+  text-align: right;
+}
+
+.marketPage[data-solved="true"] .marketConnection {
+  color: var(--green);
+}
+
+.marketPage[data-solved="true"] .marketConnection i {
+  background: var(--green);
+  box-shadow: 0 0 12px var(--green);
+}
+
+.marketBody {
+  padding: clamp(1.35rem, 3.4vw, 3rem);
+}
+
+.marketLead {
+  align-items: end;
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.45fr);
+}
+
+.marketLead > div:first-child > p,
+.marketRule,
+.eventBrief,
+.constraintReadouts,
+.marketMeters,
+.dispatchBoard,
+.marketFeedback,
+.clearingReceipt,
+.resetLink,
+.channelUnlock > div > span {
+  font-family: var(--font-geist-mono), monospace;
+  text-transform: uppercase;
+}
+
+.marketLead > div:first-child > p {
+  color: var(--amber);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  margin-bottom: 0.7rem;
+}
+
+.marketLead h1 {
+  color: var(--cream);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: clamp(3rem, 7vw, 6.6rem);
+  font-weight: 400;
+  letter-spacing: -0.085em;
+  line-height: 0.86;
+}
+
+.marketRule {
+  border-left: 1px solid rgba(255, 176, 0, 0.36);
+  padding: 0.5rem 0 0.5rem 1.25rem;
+}
+
+.marketRule span {
+  color: var(--amber);
+  font-size: 0.64rem;
+  letter-spacing: 0.15em;
+}
+
+.marketRule p {
+  color: rgba(242, 234, 219, 0.74);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  line-height: 1.6;
+  margin-top: 0.55rem;
+}
+
+.eventBrief {
+  align-items: center;
+  border-bottom: 1px solid rgba(242, 234, 219, 0.1);
+  border-top: 1px solid rgba(242, 234, 219, 0.1);
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  margin-top: clamp(2rem, 5vw, 3.75rem);
+  padding: 1rem 0.35rem;
+  position: relative;
+}
+
+.eventBrief[data-event="true"] {
+  animation: eventFlash 650ms ease both;
+  background: rgba(255, 100, 76, 0.035);
+  border-color: rgba(255, 100, 76, 0.2);
+  padding-inline: 0.8rem;
+}
+
+.eventBrief span {
+  color: var(--amber);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+}
+
+.eventBrief[data-event="true"] span {
+  color: var(--red);
+}
+
+.eventBrief p {
+  color: rgba(242, 234, 219, 0.68);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  margin-top: 0.35rem;
+}
+
+.eventBrief > strong {
+  color: var(--cream);
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.constraintReadouts {
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  margin-top: 0.75rem;
+}
+
+.constraintReadouts > div {
+  background: rgba(255, 176, 0, 0.025);
+  border: 1px solid rgba(255, 176, 0, 0.16);
+  display: flex;
+  justify-content: space-between;
+  min-height: 3.4rem;
+  padding: 0.9rem 1rem;
+}
+
+.constraintCopy {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.constraintCopy b {
+  color: rgba(242, 234, 219, 0.58);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+}
+
+.constraintCopy small {
+  color: rgba(242, 234, 219, 0.34);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+}
+
+.constraintReadouts strong {
+  color: var(--amber);
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-align: right;
+}
+
+.constraintReadouts > div[data-complete="true"] strong {
+  color: var(--green);
+}
+
+.constraintReadouts > div[data-complete="false"] strong {
+  color: var(--red);
+}
+
+.marketMeters {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 1px;
+}
+
+.marketMeters > div {
+  border: 1px solid rgba(242, 234, 219, 0.09);
+  margin-left: -1px;
+  padding: 1.15rem;
+}
+
+.marketMeters span,
+.marketMeters small {
+  color: rgba(242, 234, 219, 0.5);
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+}
+
+.marketMeters strong {
+  color: var(--cream);
+  display: inline-block;
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  font-weight: 400;
+  letter-spacing: -0.06em;
+  margin: 0.55rem 0.4rem 0.4rem 0;
+}
+
+.marketMeters div[data-complete="true"] strong {
+  color: var(--green);
+}
+
+.dispatchBoard {
+  border: 1px solid rgba(242, 234, 219, 0.1);
+  margin-top: 1rem;
+}
+
+.dispatchHead,
+.generatorRow {
+  display: grid;
+  grid-template-columns: minmax(11rem, 1.3fr) 0.65fr 0.65fr minmax(15rem, 1.5fr);
+}
+
+.dispatchHead {
+  border-bottom: 1px solid rgba(242, 234, 219, 0.09);
+  color: rgba(242, 234, 219, 0.48);
+  font-size: 0.68rem;
+  letter-spacing: 0.13em;
+  padding: 0.72rem 0;
+}
+
+.dispatchHead span,
+.generatorRow > div {
+  border-right: 1px solid rgba(242, 234, 219, 0.07);
+  padding-inline: 1rem;
+}
+
+.dispatchHead span:last-child,
+.generatorRow > div:last-child {
+  border-right: 0;
+}
+
+.generatorRow {
+  border-bottom: 1px solid rgba(242, 234, 219, 0.075);
+  min-height: 4.25rem;
+  position: relative;
+}
+
+.generatorRow:last-child {
+  border-bottom: 0;
+}
+
+.generatorRow:hover {
+  background: rgba(255, 176, 0, 0.018);
+}
+
+.generatorIdentity,
+.generatorCapacity,
+.generatorPrice,
+.dispatchControl {
+  align-items: center;
+  display: flex;
+}
+
+.generatorIdentity {
+  gap: 0.85rem;
+}
+
+.generatorIdentity i {
+  align-items: center;
+  border: 1px solid rgba(255, 176, 0, 0.26);
+  color: var(--amber);
+  display: inline-flex;
+  font-size: 0.58rem;
+  font-style: normal;
+  height: 1.8rem;
+  justify-content: center;
+  letter-spacing: 0.08em;
+  width: 2.6rem;
+}
+
+.generatorIdentity > span,
+.generatorCapacity,
+.generatorPrice {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.generatorIdentity strong,
+.generatorCapacity strong,
+.generatorPrice strong {
+  color: rgba(242, 234, 219, 0.78);
+  font-size: 0.88rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+.generatorIdentity small,
+.generatorCapacity small,
+.generatorPrice small {
+  color: rgba(242, 234, 219, 0.56);
+  font-size: 0.7rem;
+  letter-spacing: 0.09em;
+}
+
+.generatorTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.15rem;
+}
+
+.generatorTags b {
+  border: 1px solid rgba(255, 176, 0, 0.26);
+  color: var(--amber);
+  font-size: 0.52rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  padding: 0.2rem 0.34rem;
+}
+
+.generatorTags b[data-reserve="true"] {
+  border-color: rgba(134, 255, 177, 0.3);
+  color: var(--green);
+}
+
+.generatorPrice strong {
+  color: var(--amber);
+}
+
+.generatorCapacity strong,
+.generatorPrice strong {
+  font-size: 1rem;
+}
+
+.generatorCapacity small,
+.generatorPrice small {
+  font-size: 0.72rem;
+}
+
+.dispatchControl {
+  gap: 0.8rem;
+  position: relative;
+}
+
+.dispatchTrack {
+  background: rgba(242, 234, 219, 0.055);
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.dispatchTrack i {
+  background: linear-gradient(90deg, rgba(255, 176, 0, 0.07), rgba(255, 176, 0, 0.025));
+  border-right: 1px solid rgba(255, 176, 0, 0.36);
+  display: block;
+  height: 100%;
+  transition: width 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dispatchControl button,
+.dispatchControl output {
+  font-family: var(--font-geist-mono), monospace;
+  position: relative;
+  z-index: 1;
+}
+
+.dispatchControl button {
+  align-items: center;
+  background: rgba(7, 9, 7, 0.82);
+  border: 1px solid rgba(242, 234, 219, 0.17);
+  color: var(--cream);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 1rem;
+  height: 2rem;
+  justify-content: center;
+  width: 2rem;
+}
+
+.dispatchControl button:hover:not(:disabled),
+.dispatchControl button:focus-visible {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+.dispatchControl button:disabled {
+  cursor: not-allowed;
+  opacity: 0.22;
+}
+
+.dispatchControl output {
+  color: var(--cream);
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  min-width: 4rem;
+  text-align: center;
+}
+
+.marketActionBar {
+  align-items: stretch;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr auto;
+  margin-top: 1rem;
+}
+
+.marketFeedback {
+  border-left: 1px solid rgba(255, 176, 0, 0.42);
+  display: grid;
+  min-height: 3.25rem;
+  padding: 0.35rem 1rem;
+}
+
+.marketFeedback span {
+  color: rgba(242, 234, 219, 0.48);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+}
+
+.marketFeedback p {
+  align-self: end;
+  color: rgba(242, 234, 219, 0.78);
+  font-size: 0.8rem;
+  letter-spacing: 0.07em;
+  line-height: 1.45;
+}
+
+.checkMarketButton,
+.nextEventButton {
+  min-width: 12rem;
+}
+
+.clearingReceipt {
+  animation: receiptIn 480ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  border-bottom: 1px solid rgba(134, 255, 177, 0.18);
+  border-top: 1px solid rgba(134, 255, 177, 0.18);
+  display: grid;
+  grid-template-columns: 1.2fr repeat(3, 1fr);
+  margin-top: 1rem;
+}
+
+.clearingReceipt > span,
+.clearingReceipt > div {
+  align-content: center;
+  border-right: 1px solid rgba(134, 255, 177, 0.1);
+  display: grid;
+  min-height: 4rem;
+  padding: 0.75rem 1rem;
+}
+
+.clearingReceipt > :last-child {
+  border-right: 0;
+}
+
+.clearingReceipt > span {
+  color: var(--green);
+  font-size: 0.66rem;
+  letter-spacing: 0.13em;
+}
+
+.clearingReceipt p {
+  color: rgba(242, 234, 219, 0.48);
+  font-size: 0.66rem;
+  letter-spacing: 0.11em;
+}
+
+.clearingReceipt strong {
+  color: rgba(242, 234, 219, 0.76);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  margin-top: 0.35rem;
+}
+
+.resetLink {
+  background: transparent;
+  border: 0;
+  color: rgba(242, 234, 219, 0.27);
+  cursor: pointer;
+  display: block;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  margin: 1rem 0 0 auto;
+  padding: 0.35rem 0;
+}
+
+.resetLink:hover,
+.resetLink:focus-visible {
+  color: var(--amber);
+}
+
+.channelUnlock {
+  animation: unlockIn 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  align-items: center;
+  background:
+    linear-gradient(90deg, rgba(134, 255, 177, 0.055), transparent 62%),
+    rgba(134, 255, 177, 0.018);
+  border: 1px solid rgba(134, 255, 177, 0.32);
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr auto;
+  margin-top: 1.25rem;
+  overflow: hidden;
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  position: relative;
+}
+
+.channelUnlock::after {
+  color: rgba(134, 255, 177, 0.035);
+  content: "05";
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11rem;
+  line-height: 1;
+  pointer-events: none;
+  position: absolute;
+  right: 10rem;
+  top: -2rem;
+}
+
+.channelUnlock > div,
+.channelUnlock form {
+  position: relative;
+  z-index: 1;
+}
+
+.channelUnlock > div > span {
+  color: var(--green);
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+}
+
+.channelUnlock h2 {
+  font-family: var(--font-sydney-serif), Georgia, serif;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.9;
+  margin-top: 0.7rem;
+}
+
+.channelUnlock p {
+  color: rgba(242, 234, 219, 0.52);
+  font-family: var(--font-sydney-serif), Georgia, serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  margin-top: 0.8rem;
+}
+
+.channelUnlock form {
+  align-items: flex-end;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.channelUnlock button {
+  border-color: rgba(134, 255, 177, 0.7);
+  color: var(--green);
+  min-width: 12rem;
+}
+
+.channelUnlock button:hover:not(:disabled),
+.channelUnlock button:focus-visible {
+  background: var(--green);
+  box-shadow: 0 0 28px rgba(134, 255, 177, 0.16);
+  color: #061008;
+}
+
+.channelUnlock small {
+  color: rgba(242, 234, 219, 0.32);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-align: right;
+}
+
+.marketFooter {
+  border-top: 1px solid rgba(255, 176, 0, 0.11);
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+}
+
+@keyframes scan {
+  from { transform: translateY(-15vh); }
+  to { transform: translateY(90vh); }
+}
+
+@keyframes gridSweep {
+  from { transform: translateY(-10vh); }
+  to { transform: translateY(95vh); }
+}
+
+@keyframes terminalIn {
+  from { opacity: 0; transform: translateY(14px) scale(0.995); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes eventFlash {
+  0% { filter: brightness(2); opacity: 0; transform: translateY(0.5rem); }
+  100% { filter: brightness(1); opacity: 1; transform: translateY(0); }
+}
+
+@keyframes receiptIn {
+  from { opacity: 0; transform: translateY(0.6rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes unlockIn {
+  from { filter: blur(8px); opacity: 0; transform: translateY(1rem); }
+  to { filter: blur(0); opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+@keyframes deny {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+@media (max-width: 760px) {
+  .marketPage {
+    align-items: flex-start;
+    padding: 0.75rem;
+  }
+
+  .marketHeader {
+    grid-template-columns: 1fr auto;
+  }
+
+  .marketHeader > :last-child {
+    display: none;
+  }
+
+  .marketLead {
+    align-items: start;
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+  }
+
+  .marketRule {
+    border-left: 0;
+    border-top: 1px solid rgba(255, 176, 0, 0.2);
+    padding: 0.85rem 0 0;
+  }
+
+  .marketMeters {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .constraintReadouts {
+    grid-template-columns: 1fr;
+  }
+
+  .marketMeters > div:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .dispatchHead {
+    display: none;
+  }
+
+  .generatorRow {
+    grid-template-columns: 1fr auto auto;
+    min-height: 0;
+  }
+
+  .generatorRow > div {
+    border-right: 0;
+    padding: 0.8rem;
+  }
+
+  .generatorCapacity,
+  .generatorPrice {
+    text-align: right;
+  }
+
+  .dispatchControl {
+    border-top: 1px solid rgba(242, 234, 219, 0.07);
+    grid-column: 1 / -1;
+    justify-content: flex-end;
+    min-height: 3.2rem;
+  }
+
+  .dispatchControl output {
+    min-width: 5rem;
+  }
+
+  .marketActionBar,
+  .channelUnlock {
+    grid-template-columns: 1fr;
+  }
+
+  .checkMarketButton,
+  .nextEventButton,
+  .channelUnlock button {
+    width: 100%;
+  }
+
+  .clearingReceipt {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .clearingReceipt > :nth-child(2) {
+    border-right: 0;
+  }
+
+  .clearingReceipt > :nth-child(-n + 2) {
+    border-bottom: 1px solid rgba(134, 255, 177, 0.1);
+  }
+
+  .channelUnlock form {
+    width: 100%;
+  }
+
+  .marketFooter > :last-child {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .gatePage {
+    padding: 2.5rem 0.75rem;
+  }
+
+  .terminalBody {
+    padding: 1.6rem 1.25rem 2rem;
+  }
+
+  .nameFields {
+    grid-template-columns: 1fr;
+  }
+
+  .formFooter {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .formFooter button {
+    width: 100%;
+  }
+
+  .marketBody {
+    padding: 1rem;
+  }
+
+  .marketLead h1 {
+    font-size: clamp(2.7rem, 14vw, 3.6rem);
+  }
+
+  .eventBrief {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .marketMeters strong {
+    font-size: 1.35rem;
+  }
+
+  .generatorIdentity i {
+    display: none;
+  }
+
+  .generatorRow > div {
+    padding-inline: 0.65rem;
+  }
+
+  .clearingReceipt {
+    grid-template-columns: 1fr;
+  }
+
+  .clearingReceipt > span,
+  .clearingReceipt > div {
+    border-bottom: 1px solid rgba(134, 255, 177, 0.1);
+    border-right: 0;
+    min-height: 3.2rem;
+  }
+
+  .clearingReceipt > :last-child {
+    border-bottom: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scanBeam,
+  .gridPulse,
+  .signalStatus i,
+  .marketConnection i,
+  .terminal,
+  .marketConsole,
+  .eventBrief,
+  .clearingReceipt,
+  .channelUnlock {
+    animation: none;
+  }
+
+  .gatePage *,
+  .gatePage *::before,
+  .gatePage *::after,
+  .marketPage *,
+  .marketPage *::before,
+  .marketPage *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
