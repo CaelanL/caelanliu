@@ -4,10 +4,10 @@ export default function SiteNav() {
   return (
     <header className='fixed inset-x-0 top-0 z-50'>
       <div className='mx-auto flex max-w-6xl items-center justify-between px-6 py-5'>
-        <a href='#top' className='text-[15px] font-medium tracking-tight text-[#e8ede9]'>
+        <a href='#top' className='text-[16px] font-medium tracking-tight text-[#e8ede9]'>
           send<span className='text-[#2dd4a8]'>Labs</span>
         </a>
-        <nav className='hidden items-center gap-7 text-[13px] text-[#8fa39a] md:flex'>
+        <nav className='hidden items-center gap-7 text-[14px] text-[#b9c6c0] md:flex'>
           <a href='#services' className='transition-colors hover:text-[#e8ede9]'>What we do</a>
           <a href='#work' className='transition-colors hover:text-[#e8ede9]'>Work</a>
           <a href='#pricing' className='transition-colors hover:text-[#e8ede9]'>Pricing</a>
