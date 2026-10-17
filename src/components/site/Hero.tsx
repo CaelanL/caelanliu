@@ -44,7 +44,7 @@ export default function Hero() {
             initial='hidden'
             animate='show'
             custom={1}
-            className='mt-7 max-w-[27rem] font-serif text-[48px] leading-[1.05] tracking-[-0.01em] text-[#e8ede9] md:text-[60px]'
+            className='mt-7 max-w-[31rem] font-serif text-[48px] leading-[1.05] tracking-[-0.01em] text-[#e8ede9] md:text-[56px]'
           >
             Your next customer
             <br />
@@ -58,10 +58,11 @@ export default function Hero() {
             initial='hidden'
             animate='show'
             custom={2}
-            className='mt-7 max-w-[27rem] text-[17px] leading-relaxed text-[#aebfb7]'
+            className='mt-7 max-w-[28rem] text-[17px] leading-relaxed text-[#bcc9c3]'
           >
-            Websites and local search for trade companies, run by one engineer
-            who answers the phone.
+            A fast custom site, top-three work on the map pack, and form
+            fills called back within seconds. Run by one engineer who
+            answers the phone.
           </motion.p>
 
           <motion.div
@@ -142,7 +143,7 @@ export default function Hero() {
               ))}
             </div>
             <p className='mt-4 text-center text-[12px] text-[#aebfb7]'>
-              the spot we work toward
+              illustrative — the spot we work toward
             </p>
           </motion.div>
         </motion.div>
