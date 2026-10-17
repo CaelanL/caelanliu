@@ -1,2 +1,1 @@
-// TODO: replace with the real calendar link once it exists.
-export const BOOKING_URL = '#book-a-call';
+export const BOOKING_URL = 'https://cal.com/caelan-liu-stosb3/30min';
