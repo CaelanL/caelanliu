@@ -1,13 +1,23 @@
-import LeftPanel from "@/components/LeftPanel";
-import ProjectStack from "@/components/ProjectStack";
+import SiteNav from '@/components/site/SiteNav';
+import Hero from '@/components/site/Hero';
+import HowWeHelp from '@/components/site/HowWeHelp';
+import Work from '@/components/site/Work';
+import Pricing from '@/components/site/Pricing';
+import BookCall from '@/components/site/BookCall';
+import SiteFooter from '@/components/site/SiteFooter';
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex items-center">
-      <div className="flex mx-auto px-12 gap-[clamp(2rem,8vw,10rem)]">
-        <LeftPanel />
-        <ProjectStack />
-      </div>
-    </main>
+    <div className='min-h-screen'>
+      <SiteNav />
+      <main>
+        <Hero />
+        <HowWeHelp />
+        <Work />
+        <Pricing />
+        <BookCall />
+      </main>
+      <SiteFooter />
+    </div>
   );
 }
