@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Caelan Liu",
-  description: "Software Engineer",
+  title: "Send Labs",
+  description: "Websites and local search for home-service companies: HVAC, plumbing, and roofing.",
 };
 
 export default function RootLayout({
