@@ -16,7 +16,8 @@ export default function BookCall() {
           </h2>
           <p className='mx-auto mt-5 max-w-md text-[15px] leading-relaxed text-[#aebfb7]'>
             We look at your site and your local search results, and you leave
-            knowing whether we can help. If we cannot, we say so.
+            knowing whether we can help. If we cannot, we say so. The first
+            look at your site and local search is free.
           </p>
           <a
             href={BOOKING_URL}

@@ -61,8 +61,9 @@ export default function Hero() {
             className='mt-7 max-w-[28rem] text-[17px] leading-relaxed text-[#bcc9c3]'
           >
             A fast custom site, top-three work on the map pack, and form
-            fills called back within seconds. Run by one engineer who
-            answers the phone.
+            fills called back within seconds. When a tool we need does not
+            exist, we build it ourselves. One engineer, and he answers
+            the phone.
           </motion.p>
 
           <motion.div

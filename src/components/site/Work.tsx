@@ -33,7 +33,27 @@ export default function Work() {
           </p>
         </a>
 
-        <ul className='mt-6 divide-y divide-white/[0.06] rounded-2xl border border-white/[0.06]'>
+        <a
+          href='https://ardent-mentors.vercel.app'
+          target='_blank'
+          rel='noopener noreferrer'
+          className='group mt-6 block rounded-2xl border border-white/[0.06] bg-[#0d1411] p-8 transition-colors hover:border-[#2dd4a8]/40'
+        >
+          <div className='flex flex-wrap items-baseline justify-between gap-3'>
+            <h3 className='text-[19px] font-medium text-[#e8ede9]'>
+              Ardent Mentoring
+            </h3>
+            <span className='text-[13px] text-[#2dd4a8] group-hover:underline'>
+              ardent-mentors.vercel.app →
+            </span>
+          </div>
+          <p className='mt-2 max-w-xl text-[15px] leading-relaxed text-[#aebfb7]'>
+            A mentoring platform running in production: accounts, matching,
+            and sessions for an organization. Real software, real users.
+          </p>
+        </a>
+
+                <ul className='mt-6 divide-y divide-white/[0.06] rounded-2xl border border-white/[0.06]'>
           {shipped.map((p) => (
             <li key={p.id} className='flex flex-wrap items-baseline justify-between gap-2 px-6 py-4'>
               <span className='text-[15px] text-[#c9d4ce]'>{p.name} <span className='text-[14px] text-[#bcc9c3]'>— voice-first Bible memorization app, on the App Store</span></span>
