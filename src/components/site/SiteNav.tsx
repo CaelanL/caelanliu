@@ -1,28 +1,22 @@
 import { BOOKING_URL } from '@/data/site';
 
-const links = [
-  { href: '#how-we-help', label: 'How we help' },
-  { href: '#work', label: 'Work' },
-  { href: '#pricing', label: 'Pricing' },
-];
-
 export default function SiteNav() {
   return (
-    <header className='sticky top-0 z-50 border-b border-muted-line bg-bg/90 backdrop-blur'>
-      <div className='mx-auto flex max-w-5xl items-center justify-between px-6 py-4'>
-        <a href='#top' className='text-lg font-semibold tracking-tight text-fg'>
-          Send Labs
+    <header className='fixed inset-x-0 top-0 z-50'>
+      <div className='mx-auto flex max-w-6xl items-center justify-between px-6 py-5'>
+        <a href='#top' className='text-[15px] font-medium tracking-tight text-[#e8ede9]'>
+          send<span className='text-[#2dd4a8]'>Labs</span>
         </a>
-        <nav className='hidden items-center gap-8 text-sm text-muted md:flex'>
-          {links.map((l) => (
-            <a key={l.href} href={l.href} className='hover:text-fg'>
-              {l.label}
-            </a>
-          ))}
+        <nav className='hidden items-center gap-7 text-[13px] text-[#8fa39a] md:flex'>
+          <a href='#services' className='transition-colors hover:text-[#e8ede9]'>What we do</a>
+          <a href='#work' className='transition-colors hover:text-[#e8ede9]'>Work</a>
+          <a href='#pricing' className='transition-colors hover:text-[#e8ede9]'>Pricing</a>
         </nav>
         <a
           href={BOOKING_URL}
-          className='rounded-md bg-amber px-4 py-2 text-sm font-medium text-bg hover:bg-amber-dim'
+          target='_blank'
+          rel='noopener noreferrer'
+          className='rounded-full bg-[#2dd4a8] px-4 py-2 text-[13px] font-medium text-[#06231b] transition-colors hover:bg-[#54e2bd]'
         >
           Book a call
         </a>
