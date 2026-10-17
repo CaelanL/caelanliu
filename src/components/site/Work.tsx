@@ -36,8 +36,8 @@ export default function Work() {
         <ul className='mt-6 divide-y divide-white/[0.06] rounded-2xl border border-white/[0.06]'>
           {shipped.map((p) => (
             <li key={p.id} className='flex flex-wrap items-baseline justify-between gap-2 px-6 py-4'>
-              <span className='text-[15px] text-[#c9d4ce]'>{p.name} <span className='text-[13px] text-[#aebfb7]'>— voice-first Bible memorization app, on the App Store</span></span>
-              <span className='flex gap-4 text-[13px]'>
+              <span className='text-[15px] text-[#c9d4ce]'>{p.name} <span className='text-[14px] text-[#bcc9c3]'>— voice-first Bible memorization app, on the App Store</span></span>
+              <span className='flex gap-4 text-[14px]'>
                 {p.links.map((l) => (
                   <a
                     key={l.url}
