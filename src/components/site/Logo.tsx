@@ -3,12 +3,17 @@
 export function Monogram({ className = 'h-7 w-7' }: { className?: string }) {
   return (
     <svg className={className} viewBox='0 0 64 64' fill='none' aria-hidden='true'>
+      {/* L: stem + foot, drawn with a dark keyline so it reads over the s */}
       <path
-        d='M40 6h10v40H22V36h18z'
+        d='M38 6h10v40H16V36h22z'
         fill='#2dd4a8'
+        stroke='#0a0f0d'
+        strokeWidth='3'
+        strokeLinejoin='round'
       />
+      {/* s: thick rounded stroke hooking through the L stem */}
       <path
-        d='M33 15c-6-5-16-4-19 2-3.5 7 3 11 9.5 12.5 6.5 1.5 10 4.5 8.5 9-1.5 4.5-9 6-16 2'
+        d='M32 14c-7-5-17-3-19 3-2.5 7.5 4.5 11 11 12.5S34 33 32.5 38c-1.5 5-10 6.5-17 2.5'
         stroke='#2dd4a8'
         strokeWidth='9'
         strokeLinecap='round'

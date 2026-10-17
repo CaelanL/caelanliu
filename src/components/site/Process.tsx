@@ -31,8 +31,8 @@ export default function Process() {
         <div className='mt-12 grid gap-px overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.06] md:grid-cols-2 lg:grid-cols-4'>
           {steps.map((s) => (
             <div key={s.k} className='bg-[#0d1411] p-7'>
-              <span className='font-mono text-[12px] text-[#2dd4a8]'>{s.k}</span>
-              <h3 className='mt-3 text-[18px] font-medium text-[#e8ede9]'>{s.t}</h3>
+              <span className='font-mono text-[13px] font-medium text-[#2dd4a8]'>{s.k}</span>
+              <h3 className='mt-3 text-[20px] font-medium tracking-wide text-[#e8ede9]'>{s.t}</h3>
               <p className='mt-2.5 text-[14.5px] leading-relaxed text-[#bcc9c3]'>{s.d}</p>
             </div>
           ))}

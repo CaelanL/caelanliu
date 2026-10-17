@@ -31,7 +31,7 @@ export default function BuildStuff() {
           And we can build stuff for you
         </p>
         <h2 className='mt-4 max-w-2xl font-serif text-[36px] leading-[1.1] text-[#e8ede9] md:text-[44px]'>
-          When a tool we need does not exist, we build it.
+          The software behind our sites, we wrote ourselves.
         </h2>
         <p className='mt-4 max-w-xl text-[16px] leading-relaxed text-[#bcc9c3]'>
           The software behind our sites is not a product we resell. It is
